@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns = "http://www.w3.org/ns/widgets"
+    xmlns:gap = "http://phonegap.com/ns/1.0"
+    id        = "com.phonegap.example"
+    version   = "1.0.0">
+
+<name>Shopping Buddy</name>
+
+<description>
+This is an app that helps you track your shopping items.
+</description>
+
+<author href="http://www.paegle.net" email="tadas@paegle.net">
+Tadas Paegle
+</author>
+
+<icon src="images/android72.png" width="72" height="72" />
+<icon src="images/android48.png" width="48" height="48" />
+<icon src="images/android36.png" width="36" height="36" />
+
+</widget>
