@@ -19,18 +19,18 @@ $(document).bind( "pageinit", function( e, data ) {
 	});
 	
 	return;*/
-	$.post('http://www.paegle.net/shop/process.php', {'action':'activate', 'id':$(this).attr('item_id')}, function(t){ 
+	$.post('http://www.paegle.net/shop/process-shopping-list.php', {'action':'activate', 'id':$(this).attr('item_id')}, function(t){ 
 			$('#listview').empty().append(t).listview('refresh');
 		 });
 		
 	
-	$.post('http://www.paegle.net/shop/process.php', {'action':'show_inactive'}, function(t){ 
+	$.post('http://www.paegle.net/shop/process-shopping-list.php', {'action':'show_inactive'}, function(t){ 
 				$('#listview2').empty().append(t).listview('refresh');
 		 	});
 	
 	$('#form_item').submit(function(){
 		if($('#item').val() == '') return false;
-		$.post('http://www.paegle.net/shop/process.php', {'action':'add', 'item': $('#item').val() }, function(t){ //alert(t);
+		$.post('http://www.paegle.net/shop/process-shopping-list.php', {'action':'add', 'item': $('#item').val() }, function(t){ //alert(t);
 			//var new_item = '<li class="items">' + $('#item').val() + '</li>'; 
 			$('#listview').empty().append(t).listview('refresh');
 			$('#item').val('');
@@ -43,8 +43,8 @@ $(document).bind( "pageinit", function( e, data ) {
 	
 	$(".items").live("swiperight",function(event) {
 		
-		$.post('http://www.paegle.net/shop/process.php', {'action':'remove', 'id':$(this).attr('item_id')}, function(t){ 
-			$.post('http://www.paegle.net/shop/process.php', {'action':'show_inactive'}, function(t){ 
+		$.post('http://www.paegle.net/shop/process-shopping-list.php', {'action':'remove', 'id':$(this).attr('item_id')}, function(t){ 
+			$.post('http://www.paegle.net/shop/process-shopping-list.php', {'action':'show_inactive'}, function(t){ 
 				$('#listview2').empty().append(t).listview('refresh');
 		 	});
 			
@@ -58,7 +58,7 @@ $(document).bind( "pageinit", function( e, data ) {
 		//if (event.type === 'taphold') return;
 		
 		
-		$.post('http://www.paegle.net/shop/process.php', {'action':'delete', 'id':$(this).attr('item_id')}, function(t){ 
+		$.post('http://www.paegle.net/shop/process-shopping-list.php', {'action':'delete', 'id':$(this).attr('item_id')}, function(t){ 
 			
 		 });
 		 $(this).remove();
@@ -66,12 +66,12 @@ $(document).bind( "pageinit", function( e, data ) {
 	
 	$(".inactive-items").live("swiperight",function(event) {
 		
-		$.post('http://www.paegle.net/shop/process.php', {'action':'activate', 'id':$(this).attr('item_id')}, function(t){ 
+		$.post('http://www.paegle.net/shop/process-shopping-list.php', {'action':'activate', 'id':$(this).attr('item_id')}, function(t){ 
 			$('#listview').empty().append(t).listview('refresh');
 		 });
 		
 		
-		$.post('http://www.paegle.net/shop/process.php', {'action':'show_inactive'}, function(t){ 
+		$.post('http://www.paegle.net/shop/process-shopping-list.php', {'action':'show_inactive'}, function(t){ 
 			$('#listview2').empty().append(t).listview('refresh');
 			
 			});
@@ -144,6 +144,21 @@ $(document).bind( "pageinit", function( e, data ) {
 	</div>
 	<div data-role="content">
     	
+    
+    	<div data-role="collapsible-set" data-theme="b">
+            <div data-role="collapsible" data-collapsed="true">
+                <h3>
+                    Shopping List
+                </h3>
+            	<div id="list-container">
+                    <ul data-role="listview" data-theme="d" id="listview">
+                        
+                    </ul>
+              	</div>
+        	</div>
+        </div>	
+        
+        
         <div data-role="collapsible-set" data-theme="b">
             <div data-role="collapsible" data-collapsed="true">
                 <h3>
@@ -160,20 +175,6 @@ $(document).bind( "pageinit", function( e, data ) {
         </div>	
         
     
-    
-    	<div data-role="collapsible-set" data-theme="b">
-            <div data-role="collapsible" data-collapsed="true">
-                <h3>
-                    Shopping List
-                </h3>
-            	<div id="list-container">
-                    <ul data-role="listview" data-theme="d" id="listview">
-                        
-                    </ul>
-              	</div>
-        	</div>
-        </div>	
-        
         <div data-role="collapsible-set" data-theme="b">
             <div data-role="collapsible" data-collapsed="true">
                 <h3>
