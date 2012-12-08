@@ -79,6 +79,26 @@ $(document).bind( "pageinit", function( e, data ) {
 		
 	});
 	
+	
+	 $('.refresh').bind('click', function (event) {
+
+    //this will prevent the link from doing what it would natively, so it won't append a hash onto the URL
+    	event.preventDefault();
+
+		$.post('http://www.paegle.net/shop/process-shopping-list-2.php', {'action':'activate'}, function(t){ 
+			$('#listview').empty().append(t).listview('refresh'); 
+		 });
+		
+		
+		$.post('http://www.paegle.net/shop/process-shopping-list-2.php', {'action':'show_inactive'}, function(t){ 
+			$('#listview2').empty().append(t).listview('refresh');
+			
+			}); 
+		 
+		});
+	
+	
+	
 	// We only want to handle changePage() calls where the caller is
 	// asking us to load a page by URL.
 	if ( typeof data.toPage === "string" ) {
@@ -187,7 +207,7 @@ $(document).bind( "pageinit", function( e, data ) {
         	</div>
         </div>
         
-        
+        <a href="#" data-role="button" class="refresh">Refresh</a>
         
         <div>
        <!-- <form enctype="multipart/form-data" method="post" action="upload.php"  data-ajax="false">
