@@ -13,3 +13,10 @@ th {
 
 [data-role=page]{height: 100% !important; position:relative !important;}
 #[data-role=footer]{bottom:0; position:absolute !important; top: auto !important; width:100%;}
+
+h1.shopping {
+	background: url(images/android36.png) no-repeat;
+	margin-left: 20px;
+	
+	
+}
