@@ -2,7 +2,7 @@
 <widget xmlns = "http://www.w3.org/ns/widgets"
     xmlns:gap = "http://paegle.net/ns/1.0"
     id        = "com.paegle.shopping-buddy"
-    version   = "1.6.1">
+    version   = "1.7.0">
 
 <name>Shopping Buddy</name>
 

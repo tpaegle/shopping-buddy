@@ -26,7 +26,7 @@
    
 // Listen for any attempts to call changePage().
 $(document).bind( "pageinit", function( e, data ) {
-	$.event.special.swipe.horizontalDistanceThreshold = Math.min($(document).width() / 2, 160);         }); 
+	$.event.special.swipe.horizontalDistanceThreshold = Math.min($(document).width() / 2, 160);  
  
 	/*$.get('items.php', function(t){
 		$( '#page' ).children( ":jqmData(role=content)" ).html(t);
