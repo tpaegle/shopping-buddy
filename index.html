@@ -18,18 +18,18 @@ $(document).bind( "pageinit", function( e, data ) {
 	});
 	
 	return;*/
-	$.post('http://www.paegle.net/shop/process-shopping-list.php', {'action':'activate', 'id':$(this).attr('item_id')}, function(t){ 
+	$.post('http://www.paegle.net/shop/process-shopping-list-2.php', {'action':'activate', 'id':$(this).attr('item_id')}, function(t){ 
 			$('#listview').empty().append(t).listview('refresh');
 		 });
 		
 	
-	$.post('http://www.paegle.net/shop/process-shopping-list.php', {'action':'show_inactive'}, function(t){ 
+	$.post('http://www.paegle.net/shop/process-shopping-list-2.php', {'action':'show_inactive'}, function(t){ 
 				$('#listview2').empty().append(t).listview('refresh');
 		 	});
 	
 	$('#form_item').submit(function(){
 		if($('#item').val() == '') return false;
-		$.post('http://www.paegle.net/shop/process-shopping-list.php', {'action':'add', 'item': $('#item').val() }, function(t){ //alert(t);
+		$.post('http://www.paegle.net/shop/process-shopping-list-2.php', {'action':'add', 'item': $('#item').val() }, function(t){ //alert(t);
 			//var new_item = '<li class="items">' + $('#item').val() + '</li>'; 
 			$('#listview').empty().append(t).listview('refresh');
 			$('#item').val('');
@@ -42,8 +42,8 @@ $(document).bind( "pageinit", function( e, data ) {
 	
 	$(".items").live("swiperight",function(event) {
 		
-		$.post('http://www.paegle.net/shop/process-shopping-list.php', {'action':'remove', 'id':$(this).attr('item_id')}, function(t){ 
-			$.post('http://www.paegle.net/shop/process-shopping-list.php', {'action':'show_inactive'}, function(t){ 
+		$.post('http://www.paegle.net/shop/process-shopping-list-2.php', {'action':'remove', 'id':$(this).attr('item_id')}, function(t){ 
+			$.post('http://www.paegle.net/shop/process-shopping-list-2.php', {'action':'show_inactive'}, function(t){ 
 				$('#listview2').empty().append(t).listview('refresh');
 		 	});
 			
@@ -57,7 +57,7 @@ $(document).bind( "pageinit", function( e, data ) {
 		//if (event.type === 'taphold') return;
 		
 		
-		$.post('http://www.paegle.net/shop/process-shopping-list.php', {'action':'delete', 'id':$(this).attr('item_id')}, function(t){ 
+		$.post('http://www.paegle.net/shop/process-shopping-list-2.php', {'action':'delete', 'id':$(this).attr('item_id')}, function(t){ 
 			
 		 });
 		 $(this).remove();
@@ -65,12 +65,12 @@ $(document).bind( "pageinit", function( e, data ) {
 	
 	$(".inactive-items").live("swiperight",function(event) {
 		
-		$.post('http://www.paegle.net/shop/process-shopping-list.php', {'action':'activate', 'id':$(this).attr('item_id')}, function(t){ 
+		$.post('http://www.paegle.net/shop/process-shopping-list-2.php', {'action':'activate', 'id':$(this).attr('item_id')}, function(t){ 
 			$('#listview').empty().append(t).listview('refresh');
 		 });
 		
 		
-		$.post('http://www.paegle.net/shop/process-shopping-list.php', {'action':'show_inactive'}, function(t){ 
+		$.post('http://www.paegle.net/shop/process-shopping-list-2.php', {'action':'show_inactive'}, function(t){ 
 			$('#listview2').empty().append(t).listview('refresh');
 			
 			});
